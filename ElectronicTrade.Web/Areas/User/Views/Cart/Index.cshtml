@@ -1,0 +1,110 @@
+﻿@*@using ElectronicTrade.Web.UIOperations.CartOperations
+    @model Cart*@
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="refleshcart">
+
+    @Html.Action("PartialCart")
+
+</div>
+
+
+<script>
+
+    //Cart Index Delete Button Operation
+    $(document).on('click', 'a#cardproductdelete', function (e) {
+
+        var btn = $(e.currentTarget);
+        var productid = btn.data("product-id");
+        var qntty = btn.data("product-quantity");
+        var stts = 0;
+
+        $.get("/User/Cart/RemoveFromCart", { id: productid, quantity: qntty, status: stts }, function (d) {
+            //console.log(d);
+
+            $('div#refleshcart').empty();
+            $('div#refleshcart').html(d);
+            cartreflesh();
+            toastr.success("Product deleted your cart.");
+        }).always(function () {
+            //toastr.warning("Good Deal!");
+        }).fail(function () {
+            toastr.warning("Product did not delete your cart.");
+        });
+
+    });
+
+
+    //Cart Index '+' Button Operation
+    $(document).on('click', 'a#cardproductplus', function (e) {
+
+        var btn = $(e.currentTarget);
+        var productid = btn.data("product-id");
+        //var stockstatus = btn.data("product-id");
+
+        $.get("/User/Cart/AddToCart", { id: productid }, function (d) {
+            $('div#refleshcart').empty();
+            $('div#refleshcart').html(d);
+            cartreflesh();
+            toastr.success("Product added your cart.");
+        }).always(function () {
+            //toastr.warning("Good Deal!");
+        }).fail(function () {
+            toastr.warning("Product did not add your cart.");
+        });
+
+    });
+
+
+    //Cart Index '-' Button Operation
+    $(document).on('click', 'a#cardproductminus', function (e) {
+
+        var btn = $(e.currentTarget);
+        var productid = btn.data("product-id");
+        var qntty = btn.data("product-quantity");
+        var stts = 1;
+        $.get("/User/Cart/RemoveFromCart", { id: productid, quantity: qntty, status: stts }, function (d) {
+            //console.log(d);
+
+            $('div#refleshcart').empty();
+            $('div#refleshcart').html(d);
+            cartreflesh();
+            toastr.success("Product deleted your cart.");
+        }).always(function () {
+            //toastr.warning("Good Deal!");
+        }).fail(function () {
+            toastr.warning("Product did not delete your cart.");
+        });
+
+    });
+
+
+
+    $(document).on('click', 'a#cardproductalldelete', function (e) {
+
+        //var btn = $(e.currentTarget);
+        //var productid = btn.data("product-id");
+        //var qntty = btn.data("product-quantity");
+
+        $.get("/User/Cart/ClearAllCard", {}, function (d) {
+            //console.log(d);
+
+            $('div#refleshcart').empty();
+            $('div#refleshcart').html(d);
+            cartreflesh();
+            toastr.success("All product deleted from your cart.");
+        }).always(function () {
+            //toastr.warning("Good Deal!");
+        }).fail(function () {
+            toastr.warning("All product did not delete from your cart.");
+        });
+
+    });
+
+</script>

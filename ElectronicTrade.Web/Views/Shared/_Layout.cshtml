@@ -1,0 +1,371 @@
+﻿@using ElectronicTrade.Web.UIOperations.SessionOperations
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GraduationProject</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-grid.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-reboot.css" rel="stylesheet" />
+    <link href="~/Fonts/css/all.min.css" rel="stylesheet" />
+    <link href="~/content/site.css" rel="stylesheet" />
+    <link href="~/Content/SubCarousel.css" rel="stylesheet" />
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+
+    @*<link href="~/Content/InfiniteCategory/InfinityCategory.css" rel="stylesheet" />*@
+
+
+    @*mdb*@
+
+    <link href="~/Content/mdb/css/addons/datatables-select.css" rel="stylesheet" />
+    <link href="~/Content/mdb/css/addons/datatables.css" rel="stylesheet" />
+    <link href="~/Content/mdb/css/addons/directives.css" rel="stylesheet" />
+    <link href="~/Content/mdb/css/modules/animations-extended.css" rel="stylesheet" />
+    <link href="~/Content/mdb/css/mdb.css" rel="stylesheet" />
+    <link href="~/Content/mdb/css/mdb.lite.css" rel="stylesheet" />
+    <link href="~/Content/mdb/css/mdb.min.css" rel="stylesheet" />
+
+    @*mdb*@
+
+</head>
+<body>
+
+    @*NavBar Begin*@
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/Home/Index">
+            @*<img src="~/Images/icons8-shopping-cart-96.png" width="30" height="30" class="d-inline-block align-top" alt="">*@
+            <i class="fab fa-app-store-ios" style="font-size:larger;color:orange;"></i>
+            @*<span style="color:bisque;">Cather</span>*@
+        </a>
+        @*<a class="navbar-brand" href="#">Navbar</a>*@
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    @*nav-item active*@
+                    <a class="nav-link" href="#">Link 1 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 3</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <ul class="navbar-nav mr-auto">
+                    @if (CurrentSession.User == null)
+                    {
+
+                        <li class="nav-item">
+                            @*nav-item active*@
+                            <a class="nav-link" href="/User/UserHome/Register"><i class="fas fa-user"></i> Register <span class="sr-only">(current)</span></a>
+                        </li>@:&nbsp;
+                        <li class="nav-item">
+                            <a class="nav-link" href="/User/UserHome/LogIn"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        </li>@:&nbsp;
+
+                    }
+                    else
+                    {
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-user"></i> @CurrentSession.User.Username</a>
+                        </li>@:&nbsp;
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="far fa-envelope"></i> Messages <span class="badge badge-pill badge-secondary">5</span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>@:&nbsp;
+
+                        <li class="nav-item">
+                            <button id="modalActivate" type="button" class="btn btn-outline-amber btn-sm" data-toggle="modal" data-target="#exampleModalPreview">
+                                <i class="fas fa-user-cog"></i>
+                            </button>
+                        </li>@:&nbsp;
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                        </li>@:&nbsp;
+                    }
+                    <li class="nav-item dropdown" id="cartdropdown">
+                    
+                    @Html.Action("Summary", "Cart", new { area = "User" })
+
+                    </li>&nbsp;
+
+
+
+                    @*<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-shopping-cart"></i> My Cart <span class="badge badge-pill badge-secondary">3</span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>&nbsp;*@
+
+                </ul>
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    @*NavBar End*@
+
+    @*Render Body Begin*@
+    <div>
+        @RenderBody()
+    </div>
+    @*Render Body End*@
+
+    <div>
+
+        @*Footer Begin*@
+        <!-- Footer -->
+        <footer class="page-footer font-small blue-grey lighten-5">
+
+            <div style="background-color: #21d192;">
+                <div class="container">
+
+                    <!-- Grid row-->
+                    <div class="row py-4 d-flex align-items-center">
+
+                        <!-- Grid column -->
+                        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                            <h6 class="mb-0">Get connected with us on social networks!</h6>
+                        </div>
+                        <!-- Grid column -->
+                        <!-- Grid column -->
+                        <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+                            <!-- Facebook -->
+                            <a class="fb-ic">
+                                <i class="fab fa-facebook-f white-text mr-4"> </i>
+                            </a>
+                            <!-- Twitter -->
+                            <a class="tw-ic">
+                                <i class="fab fa-twitter white-text mr-4"> </i>
+                            </a>
+                            <!-- Google +-->
+                            <a class="gplus-ic">
+                                <i class="fab fa-google-plus-g white-text mr-4"> </i>
+                            </a>
+                            <!--Linkedin -->
+                            <a class="li-ic">
+                                <i class="fab fa-linkedin-in white-text mr-4"> </i>
+                            </a>
+                            <!--Instagram-->
+                            <a class="ins-ic">
+                                <i class="fab fa-instagram white-text"> </i>
+                            </a>
+
+                        </div>
+                        <!-- Grid column -->
+
+                    </div>
+                    <!-- Grid row-->
+
+                </div>
+            </div>
+
+            <!-- Footer Links -->
+            <div class="container text-center text-md-left mt-5">
+
+                <!-- Grid row -->
+                <div class="row mt-3 dark-grey-text">
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+
+                        <!-- Content -->
+                        <h6 class="text-uppercase font-weight-bold">Company name</h6>
+                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p>
+                            Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+                            consectetur
+                            adipisicing elit.
+                        </p>
+
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                        <!-- Links -->
+                        <h6 class="text-uppercase font-weight-bold">Products</h6>
+                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p>
+                            <a class="dark-grey-text" href="#!">MDBootstrap</a>
+                        </p>
+                        <p>
+                            <a class="dark-grey-text" href="#!">MDWordPress</a>
+                        </p>
+                        <p>
+                            <a class="dark-grey-text" href="#!">BrandFlow</a>
+                        </p>
+                        <p>
+                            <a class="dark-grey-text" href="#!">Bootstrap Angular</a>
+                        </p>
+
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                        <!-- Links -->
+                        <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p>
+                            <a class="dark-grey-text" href="#!">Your Account</a>
+                        </p>
+                        <p>
+                            <a class="dark-grey-text" href="#!">Become an Affiliate</a>
+                        </p>
+                        <p>
+                            <a class="dark-grey-text" href="#!">Shipping Rates</a>
+                        </p>
+                        <p>
+                            <a class="dark-grey-text" href="#!">Help</a>
+                        </p>
+
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+                        <!-- Links -->
+                        <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                        <p>
+                            <i class="fas fa-home mr-3"></i> New York, NY 10012, US
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope mr-3"></i> info@example.com
+                        </p>
+                        <p>
+                            <i class="fas fa-phone mr-3"></i> + 01 234 567 88
+                        </p>
+                        <p>
+                            <i class="fas fa-print mr-3"></i> + 01 234 567 89
+                        </p>
+
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+            </div>
+            <!-- Footer Links -->
+            <!-- Copyright -->
+            <div class="footer-copyright text-center text-black-50 py-3">
+                © 2018 Copyright:
+                <a class="dark-grey-text" href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+        <!-- Footer -->
+        @*Footer End*@
+
+    </div>
+
+    @*Modal Begin*@
+
+    <!-- Modal -->
+    <!-- Button trigger modal -->
+    <!-- Modal -->
+    <div class="modal fade top" id="exampleModalPreview" tabindex="-1" role="dialog" aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fluid modal-frame modal-top" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalPreviewLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <!-- Modal -->
+    @*Modal End*@
+
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    @*<script src="~/Scripts/SubCarousel.js"></script>*@
+    <script src="~/Scripts/toastr.min.js"></script>
+    @*mdb*@
+    <script src="~/Content/mdb/js/mdb.min.js"></script>
+    <script src="~/Content/mdb/js/popper.min.js"></script>
+    <script src="~/Content/mdb/js/modules/bs-custom-file-input.js"></script>
+    <script src="~/Content/mdb/js/modules/chart.js"></script>
+    <script src="~/Content/mdb/js/modules/enhanced-modals.js"></script>
+    <script src="~/Content/mdb/js/modules/forms-free.js"></script>
+    <script src="~/Content/mdb/js/modules/jquery.easing.js"></script>
+    <script src="~/Content/mdb/js/modules/scrolling-navbar.js"></script>
+    <script src="~/Content/mdb/js/modules/treeview.js"></script>
+    <script src="~/Content/mdb/js/modules/velocity.js"></script>
+    <script src="~/Content/mdb/js/modules/waves.js"></script>
+    <script src="~/Content/mdb/js/modules/wow.js"></script>
+    <script src="~/Content/mdb/js/addons/datatables.min.js"></script>
+    <script src="~/Content/mdb/js/addons/datatables-select.min.js"></script>
+    <script src="~/Content/mdb/js/addons/imagesloaded.pkgd.min.js"></script>
+    <script src="~/Content/mdb/js/addons/jquery.zmd.hierarchical-display.js"></script>
+    <script src="~/Content/mdb/js/addons/jquery.zmd.hierarchical-display.min.js"></script>
+    <script src="~/Content/mdb/js/addons/masonry.pkgd.min.js"></script>
+    <script src="~/Content/mdb/js/addons/rating.js"></script>
+
+    @*mdb*@
+</body>
+</html>
+
+<script>
+    function cartreflesh() {
+
+        $.get("/User/Cart/Summary", {}, function (c) {
+
+            $('li#cartdropdown').empty();
+            $('li#cartdropdown').html(c);
+
+            //toastr.success("cartreflesh içi");
+        }).always(function () {
+            //toastr.warning("Good Deal!");
+        }).fail(function () {
+            //toastr.warning("cartreflesh fail");
+        });
+
+
+    }
+
+</script>

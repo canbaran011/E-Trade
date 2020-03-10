@@ -1,0 +1,160 @@
+﻿@using ElectronicTrade.Entities.ViewModels.VirtualViewModel
+@model LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container" style="margin-top:60px;margin-bottom:60px;">
+
+    <!-- Section: form gradient -->
+    <section class="form-gradient mb-5">
+
+        <!--Form with header-->
+        <div class="card">
+
+            <!--Header-->
+            <div class="header peach-gradient">
+
+                <div class="row d-flex justify-content-center">
+                    <h3 class="white-text mb-0 py-5 font-weight-bold">Log In</h3>
+                </div>
+
+            </div>
+            <!--Header-->
+            @using (Html.BeginForm("Login", "UserHome", new { area = "User" }, FormMethod.Post))
+            {
+
+                <div class="card-body mx-4">
+
+                    @Html.ValidationSummary(true)
+                    @*Verification Link*@
+
+                    @if (ViewBag.SetLink != null)
+                    {
+                        <div style="margin-top:15px;margin-bottom:45px;">
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong><a href="@ViewBag.SetLink">We'll send you a re-activation link.!</a></strong>
+
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    }
+
+                    @*Verification Link*@
+
+                    <div class="md-form">
+                        <i class="fas fa-user prefix grey-text"></i>
+                        @*<input type="text" id="form104" class="form-control">*@
+                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", type = "text", id = "email" })
+                        <label for="email">Your Email</label>
+                        <p style="margin-left:40px;"> @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</p>
+                    </div>
+
+
+                    <div class="md-form">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        @*<input type="text" id="password" class="form-control">*@
+                        @Html.TextBoxFor(x => x.Password, new { @class = "form-control", type = "password", id = "password" })
+                        <label for="password">Your Password</label>
+                        <p style="margin-left:40px;">  @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })</p>
+                    </div>
+
+                    <!--Grid row-->
+                    <div class="row d-flex align-items-center mb-3 mt-4">
+
+                        <!--Grid column-->
+                        <div class="col-md-12">
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-grey btn-rounded z-depth-1a">Send</button>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+
+                    </div>
+                    <!--Grid row-->
+                </div>
+
+            }
+
+        </div>
+        <!--/Form with header-->
+
+    </section>
+    <!-- Section: form gradient -->
+</div>
+
+
+<style>
+
+    .form-gradient .header {
+        border-top-left-radius: .3rem;
+        border-top-right-radius: .3rem;
+    }
+
+    .form-gradient input[type=text]:focus:not([readonly]) {
+        border-bottom: 1px solid #fd9267;
+        box-shadow: 0 1px 0 0 #fd9267;
+    }
+
+        .form-gradient input[type=text]:focus:not([readonly]) + label {
+            color: #4f4f4f;
+        }
+
+    .form-gradient textarea.md-textarea:focus:not([readonly]) {
+        border-bottom: 1px solid #fd9267;
+        box-shadow: 0 1px 0 0 #fd9267;
+    }
+
+
+    .form-dark .md-form label {
+        color: #fff;
+    }
+
+    .form-dark input[type=text]:focus:not([readonly]) {
+        border-bottom: 1px solid #00C851;
+        -webkit-box-shadow: 0 1px 0 0 #00C851;
+        box-shadow: 0 1px 0 0 #00C851;
+    }
+
+        .form-dark input[type=text]:focus:not([readonly]) + label {
+            color: #fff;
+        }
+
+    .form-dark textarea.md-textarea:focus:not([readonly]) {
+        border-bottom: 1px solid #00C851;
+        box-shadow: 0 1px 0 0 #00C851;
+        color: #fff;
+    }
+
+    .form-dark textarea.md-textarea {
+        color: #fff;
+    }
+
+    .form-dark .form-control, .form-dark .form-control:focus {
+        color: #fff;
+    }
+
+    .validation-summary-errors {
+        margin-bottom: 20px;
+    }
+
+        .validation-summary-errors ul li {
+            /*list-style-type: lower-latin;*/
+            color: deeppink;
+            padding: 2px;
+        }
+
+        .validation-summary-errors ul {
+            /*list-style-type: lower-latin;*/
+            background-color: #FFF3CD;
+            border-radius: 5px;
+        }
+</style>
+
+@*deneme*@
+

@@ -1,0 +1,20 @@
+﻿@using ElectronicTrade.Web.UIOperations.CartOperations
+@model Cart
+
+
+@*<li class="nav-item dropdown">*@
+<a class="nav-link dropdown-toggle" href="/User/Cart/Index" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-shopping-cart"></i> My Cart <span class="badge badge-pill badge-secondary">@Model.CartLines.Count</span>
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:ivory;">
+    @foreach (var item in Model.CartLines)
+    {
+        <span >
+            <a class="dropdown-item" href="#"><i class="fas fa-shopping-cart" style="color:palevioletred;"></i> <span style="color:blueviolet;">@item.Product.Name</span> </a>
+        </span>
+    }
+
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item text-center" href="/User/Cart/Index"><i class="fab fa-opencart" style="color:red;"></i> <span style="color:purple;">My Cart</span> </a>
+</div>
+@*</li>&nbsp;*@

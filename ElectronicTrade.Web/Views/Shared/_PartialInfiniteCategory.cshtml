@@ -1,0 +1,30 @@
+﻿@using ElectronicTrade.Entities.ViewModels.EntityViewModel
+@using ElectronicTrade.Entities
+
+@model CategoryViewModel
+    <div class="card text-center" style="background-color:palegoldenrod;">
+        <div class="card-header">
+            @{
+                List<string> colorlist = new List<string>() { "amber", "blue", "cyan", "blue-grey", "brown", "danger" };
+                int cntrl = 0;
+            }
+
+            @foreach (Category item in Model.categories.Where(x => x.ParentCategory_Id == null).ToList())
+            {
+                <a class="nav-link  btn btn-sm btn-@(colorlist[cntrl])" href="#">@item.Name</a>
+
+                if (cntrl > 4)
+                {
+                    cntrl = 0;
+                }
+                else
+                {
+                    cntrl++;
+                }
+            }
+        </div>
+    </div>
+
+    @BootstrapHelper.CreateMenu(Model.categories)
+
+

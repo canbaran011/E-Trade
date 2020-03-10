@@ -1,0 +1,184 @@
+﻿@using ElectronicTrade.Entities.ViewModels.VirtualViewModel
+@model  RegisterViewModel
+
+
+<div class="container col-md-3" style="margin-top:60px;margin-bottom:60px;">
+
+    <!--Section: Live preview-->
+    <section class="form-dark">
+        @using (Html.BeginForm("Register", "UserHome", new { area = "User" }, FormMethod.Post))
+        {
+
+           
+            <!--Form without header-->
+            <div class="card card-image" style="background-image: url('https://images.unsplash.com/photo-1535928069047-389a87df1b02?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80'); width: auto;">
+                <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+
+
+                    <!--Header-->
+                    <div class="text-center">
+                        <h3 class="white-text mb-5 mt-4 font-weight-bold"><strong>SIGN</strong> <a class="green-text font-weight-bold"><strong> UP</strong></a></h3>
+                    </div>
+                    @Html.ValidationSummary(true)
+                    <!--Body-->
+                    <div class="md-form">
+                        @*<input type="text" id="Form-Name" class="form-control white-text">*@
+                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control white-text", type = "text", id = "Form-Name" })
+                        <label for="Form-Name">Your Name</label>
+                        <p> @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })</p>
+                    </div>
+
+                    <div class="md-form">
+                        @*<input type="text" id="Form-Surname" class="form-control white-text">*@
+                        @Html.TextBoxFor(x => x.Surname, new { @class = "form-control white-text", type = "text", id = "Form-Surname" })
+                        <label for="Form-Surname">Your Surname</label>
+                        <p> @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })</p>
+                    </div>
+
+                    <div class="md-form">
+                        @*<input type="text" id="Form-Surname" class="form-control white-text">*@
+                        @Html.TextBoxFor(x => x.Username, new { @class = "form-control white-text", type = "text", id = "Form-Username" })
+                        <label for="Form-Username">Your Username</label>
+                        <p> @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })</p>
+                    </div>
+
+                    <div class="md-form">
+                        @*<input type="text" id="Form-Email" class="form-control white-text">*@
+                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control white-text", type = "text", id = "Form-Email" })
+                        <label for="Form-Email">Your email</label>
+                        <p> @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</p>
+                    </div>
+
+                    <div class="md-form pb-3">
+                        @*<input type="password" id="Form-Password" class="form-control white-text">*@
+                        @Html.TextBoxFor(x => x.Password, new { @class = "form-control white-text", type = "text", id = "Form-Password" })
+                        <label for="Form-Password">Your password</label>
+                        <p> @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })</p>
+                    </div>
+
+                    <div class="md-form">
+                        @*<input type="text" id="Form-ConfirmPassword" class="form-control white-text">*@
+                        @Html.TextBoxFor(x => x.PasswordConfirmation, new { @class = "form-control white-text", type = "text", id = "Form-ConfirmPassword" })
+                        <label for="Form-ConfirmPassword">Confirm Password</label>
+                        <p> @Html.ValidationMessageFor(model => model.PasswordConfirmation, "", new { @class = "text-danger" })</p>
+                    </div>
+
+                    <div style="margin-top:10px;margin-bottom:20px;">
+                        <div class="form-check">
+
+                            <input type="checkbox" name="TermsAndCondition" class="form-check-input" id="materialUnchecked" style="display:none;" value="true">&nbsp;&nbsp;&nbsp;
+                            <label class="form-check-label" for="materialUnchecked"><span>Accept the</span>&nbsp;&nbsp;<b style="color:limegreen;"><a>Terms and Conditions</a> </b></label>
+                            <p> @Html.ValidationMessageFor(model => model.TermsAndCondition, "", new { @class = "text-danger" })</p>
+                        </div>
+                    </div>
+
+                    <!--Grid row-->
+                    <div class="row d-flex align-items-center mb-4">
+
+                        <!--Grid column-->
+                        <div class="text-center mb-3 col-md-12">
+                            <button type="submit" class="btn btn-success btn-block btn-rounded z-depth-1">Sign Up</button>
+                        </div>
+                        <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                    <!--Grid column-->
+                    <div class="col-md-12">
+                        <p class="font-small white-text d-flex justify-content-end">Have an account? <a href="#" class="green-text ml-1 font-weight-bold"> Log in</a></p>
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+            </div>
+            <!--/Form without header-->
+        }
+    </section>
+    <!--Section: Live preview-->
+
+</div>
+
+<style>
+
+    .form-dark .font-small {
+        font-size: 0.8rem;
+    }
+
+    .form-dark [type="radio"] + label,
+    .form-dark [type="checkbox"] + label {
+        font-size: 0.8rem;
+    }
+
+        .form-dark [type="checkbox"] + label:before {
+            top: 2px;
+            width: 15px;
+            height: 15px;
+        }
+
+    .form-dark .md-form label {
+        color: #fff;
+    }
+
+    .form-dark input[type=text]:focus:not([readonly]) {
+        border-bottom: 1px solid #00C851;
+        -webkit-box-shadow: 0 1px 0 0 #00C851;
+        box-shadow: 0 1px 0 0 #00C851;
+    }
+
+        .form-dark input[type=text]:focus:not([readonly]) + label {
+            color: #fff;
+        }
+
+    .form-dark input[type=password]:focus:not([readonly]) {
+        border-bottom: 1px solid #00C851;
+        -webkit-box-shadow: 0 1px 0 0 #00C851;
+        box-shadow: 0 1px 0 0 #00C851;
+    }
+
+        .form-dark input[type=password]:focus:not([readonly]) + label {
+            color: #fff;
+        }
+
+    .form-dark input[type="checkbox"] + label:before { /*TODO*/
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 17px;
+        height: 17px;
+        z-index: 0;
+        border: 1.5px solid #fff;
+        border-radius: 1px;
+        margin-top: 2px;
+        -webkit-transition: 0.2s;
+        transition: 0.2s;
+    }
+
+    .form-dark input[type="checkbox"]:checked + label:before {
+        top: -4px;
+        left: -3px;
+        width: 12px;
+        height: 22px;
+        border-style: solid;
+        border-width: 2px;
+        border-color: transparent #00c851 #00c851 transparent;
+        -webkit-transform: rotate(40deg);
+        -ms-transform: rotate(40deg);
+        transform: rotate(40deg);
+        -webkit-backface-visibility: hidden;
+        -webkit-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+        transform-origin: 100% 100%;
+    }
+
+    .validation-summary-errors {
+    margin-bottom: 50px;
+
+    }
+    .validation-summary-errors ul li {
+        /*list-style-type: lower-latin;*/
+        color: yellow;
+    }
+
+
+</style>
+

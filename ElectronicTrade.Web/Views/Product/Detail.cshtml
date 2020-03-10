@@ -1,0 +1,152 @@
+﻿@using ElectronicTrade.Entities.ViewModels.EntityViewModel
+@using ElectronicTrade.Entities.EntityEnums.BadgeType
+@model ProductViewModel
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<div class="container" style="margin-top:50px;">
+
+    <div class="row" style="margin-bottom:30px;">
+        <div class="col-md-4">
+            <br />
+            <center><img src="~/Images/Homepage/DiscountedProducts/@(Model.product.productImages[0].FirstImageName)" class="img-responsive img-thumbnail" /></center>
+        </div>
+        <div class="col-md-8">
+
+            <div class="form-group">
+
+                <div class="col-md-6">
+                    <h2 style="margin-top:15px;">@Model.product.Name</h2>
+                    <hr />
+                </div>
+                <div class="col-md-6 text-right">
+                    <h2 class="text-danger">
+                        @Model.product.Price ₺
+
+                        @if (Model.product.BadgeType == Badge.Sale)
+                        {
+                            <span class="card-title"><span class="badge badge-danger" style="font-size:medium;">Sale %@Model.product.Discount</span></span>
+                        }
+                        else if (Model.product.BadgeType == Badge.New)
+                        {
+                            <span class="card-title"><span class="badge badge-info" style="font-size:medium;">New</span></span>
+                        }
+                        else if (Model.product.BadgeType == Badge.Best)
+                        {
+                            <span class="card-title"><span class="badge badge-warning" style="font-size:medium;">Best</span></span>
+                        }
+                        <i class="far fa-brackets-curly"></i>
+
+                    </h2>
+
+                    <hr />
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <p>@Model.product.Description</p>
+            </div>
+
+            <div class="form-group">
+                <span class="text-danger">Derecelendirme :&nbsp;&nbsp;&nbsp;</span>
+                <span class="text-warning">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-md-push-4">
+
+            <a id="cartids" class="btn btn-outline-success btn-sm" data-product-id="@Model.product.Id" data-stock-status="@Model.product.StockStatus" title="Add to Cart" style="padding:10px;">
+                <i class="fas fa-cart-plus"></i> Add To Cart
+            </a>
+
+            <a href="/User/Cart/Index" id="cartids" class="btn btn-outline-warning btn-sm" title="Go to Cart" style="padding:10px;">
+                <i class="far fa-paper-plane"></i> Go to Chart
+            </a>
+            <hr />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 col-md-push-4">
+
+            <div class="form-group">
+                <h3 style="color:deeppink;"><i class="far fa-comments"></i> Comments</h3>
+                <hr />
+            </div>
+
+            <div class="form-group">
+                <ul class="media-list">
+                    <li class="media">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="media-object img-circle img-thumbnail" src="http://placehold.it/64x64" style="border-radius:50px;">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">muratbaseren</h4>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </div>
+                    </li>
+                    <li class="media">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="media-object img-circle img-thumbnail" src="http://placehold.it/64x64" style="border-radius:50px;">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">muratbaseren</h4>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="form-group">
+                <textarea cols="30" rows="3" id="comment" name="comment" class="form-control" placeholder="Enter your comments" maxlength="255"></textarea>
+            </div>
+
+            <div class="form-group text-right">
+                <button class="btn btn-success btn-sm">
+                    <i class="far fa-paper-plane"></i> Send
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+
+    $(document).on('click', 'a#cartids', function (e) {
+
+        var btn = $(e.currentTarget);
+        var productid = btn.data("product-id");
+        //var stockstatus = btn.data("product-id");
+       
+        $.get("/User/Cart/AddToCart", { id: productid }, function (h) {
+            //$('#nbr').empty();
+            //$('#nbr').html(d);
+            cartreflesh();
+            toastr.success("Product added your cart.");
+        }).always(function () {
+            //toastr.warning("Good Deal!");
+        }).fail(function () {
+            toastr.warning("Product did not add your cart.");
+        });
+
+    });
+
+</script>

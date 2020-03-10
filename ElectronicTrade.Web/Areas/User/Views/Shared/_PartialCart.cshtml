@@ -1,0 +1,110 @@
+﻿@using ElectronicTrade.Web.UIOperations.CartOperations
+@model Cart
+
+
+
+<div class="container" style="margin-top:30px;">
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3><span style="color:lightblue;"><i class="fab fa-opencart"></i></span>  <span style="color:palevioletred;">Shopping Cart</span> </h3>
+            <hr />
+        </div>
+    </div>
+
+    @if (Model.CartLines.Count > 0)
+    {
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive text-nowrap">
+
+
+                    <table class="table">
+
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-center">Image</th>
+                                <th scope="col" class="text-center">Quantity</th>
+                                <th scope="col" class="text-center">Product Name</th>
+                                <th scope="col" class="text-center">Price</th>
+                                <th scope="col" class="text-center">Sub Total</th>
+                                <th scope="col" class="text-center">Operations</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model.CartLines)
+                            {
+
+                                <tr>
+                                    <td class="text-center"><img src="~/Images/Homepage/DiscountedProducts/@item.Product.productImages[0].FirstImageName" style="width:64px;height:auto;" class="card-img-top" /></td>
+                                    <td class="text-center">@item.Quantity</td>
+                                    <td class="text-center">@item.Product.Name</td>
+                                    <td class="text-center">@item.Product.Price</td>
+                                    <td class="text-center">@((item.Product.Price * item.Quantity).ToString("c"))</td>
+                                    <td class="text-center">
+                                        <a id="cardproductplus" data-product-id="@item.Product.Id" data-product-quantity="@item.Quantity" class="btn btn-warning btn-sm">
+                                            <i class="fas fa-plus"></i>
+                                        </a>
+                                        <a id="cardproductminus" data-product-id="@item.Product.Id" data-product-quantity="@item.Quantity" class="btn btn-info btn-sm">
+                                            <i class="fas fa-minus"></i>
+                                        </a>
+                                        &nbsp;|&nbsp;&nbsp;
+                                        <a id="cardproducteye" data-product-id="@item.Product.Id" data-product-quantity="@item.Quantity" class="btn btn-blue btn-sm">
+                                            <i class="far fa-eye"></i>
+                                        </a>&nbsp;&nbsp;
+                                        <a id="cardproductdelete" data-product-id="@item.Product.Id" data-product-quantity="@item.Quantity" class="btn btn-danger btn-sm">
+                                            <i class="far fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                            }
+
+                        </tbody>
+
+                        <tfoot>
+                            <tr style="background-color:ivory;">
+                                <td class="text-center">
+                                    <h5>Total Price:</h5> &nbsp;
+                                </td>
+                                <td class="text-center text-danger">
+                                    <h4>@Model.Total() ₺</h4> <span></span>
+                                </td>
+                                <td colspan="4" class="text-right">
+                                    <br />
+                                    <a href="/Home/Index" class="btn btn-pink btn-sm">
+                                        <i class="far fa-arrow-alt-circle-left"></i> Continue Shopping
+                                    </a>
+                                    <a id="cardproductalldelete" class="btn btn-danger btn-sm">
+                                        <i class="far fa-trash-alt"></i> Clear All
+                                    </a>
+                                    <a href="#" class="btn btn-success btn-sm">
+                                        <i class="far fa-paper-plane"></i> Buy
+                                    </a>
+                                </td>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+
+    }
+    else
+    {
+        <div class="alert alert-warning" role="alert">
+            <i class="fas fa-exclamation-circle"></i> Your chart is empty!
+        </div>
+    }
+
+
+</div>
+
+
+

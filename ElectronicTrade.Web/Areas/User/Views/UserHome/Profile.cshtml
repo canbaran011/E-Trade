@@ -1,0 +1,438 @@
+﻿
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@*------------------ 5th Sub Part Begin ---------------------------------*@
+
+<div class="container" style="margin-top:30px;margin-bottom:30px;">
+    <div style="padding:10px;background-color:lemonchiffon;border-radius:10px;">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-account-operations" role="tab" aria-controls="pills-contact" aria-selected="false">Account Operations</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-account-settings" role="tab" aria-controls="pills-contact" aria-selected="false">Account Settings</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-help" role="tab" aria-controls="pills-contact" aria-selected="false">Help</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content pt-2 pl-1" id="pills-tabContent">
+        @*-----------------------HOME Begin---------------------------*@
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            @*Content Begin*@
+            <div class="card-group">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Panel title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Panel title</h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Panel title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+            @*Content End*@
+        </div>
+        @*-----------------------HOME End-----------------------------*@
+
+        @*-----------------------Profile Begin------------------------*@
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        @*Content Begin*@
+        @*Card*@
+        <div class="card bg-light mb-3" style="max-width:100%;">
+            <div class="card-header" style="background-color:#ECEFF1;">  <h4><i class="far fa-user-circle" style="color:palevioletred;"></i> <span style="color:darkcyan;">My Profile</span> </h4></div>
+            <div class="card-body" style="background-color:ivory;">
+                @*<h5 class="card-title"></h5>*@
+                @*card-body*@
+                @*<div class="row">
+                <div class="col-md-12">
+                    <h4><i class="far fa-user-circle" style="color:lightcoral;"></i> <span style="color:burlywood;">My Profile</span> </h4>
+                    <hr />
+                </div>
+            </div>*@
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <center><img src="http://placehold.it/150x150" class="img-circle img-responsive img-thumbnail" /></center>
+                    </div>
+                    <div class="col-md-8 well">
+
+                        <div class="form-group">
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-6 text-danger"><a href="#" class="badge badge-default" style="width:100%;">Name</a></label>
+                            <label class="col-md-10"><a href="#" class="badge badge-light" style="width:50%;">Alican</a></label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-6 text-danger"><a href="#" class="badge badge-default" style="width:100%;">Surname</a></label>
+                            <label class="col-md-10"><a href="#" class="badge badge-light" style="width:50%;">Yılmaz</a></label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-6 text-danger"><a href="#" class="badge badge-default" style="width:100%;">E-Mail</a></label>
+                            <label class="col-md-10"><a href="#" class="badge badge-light" style="width:50%;">alicanyilmaz101@@gmail.com</a></label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-6 text-danger"><a href="#" class="badge badge-default" style="width:100%;">Biography</a></label>
+                            <label class="col-md-10"><a href="#" class="badge badge-light text-wrap" style="width:100%;">  Ipsum gravida vel pretium tellus tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut.</a></label>
+                        </div>
+                    </div>
+                </div>
+
+
+                @*card-body*@
+            </div>
+            <div class="card-footer text-muted" style="background-color:#ECEFF1;">
+
+            </div>
+        </div>
+        @*Card*@
+      
+
+        @*Content End*@
+    </div>
+        @*-----------------------Profile End--------------------------*@
+
+        @*-------------------Account Operations Begin-----------------*@
+    <div class="tab-pane fade" id="pills-account-operations" role="tabpanel" aria-labelledby="pills-contact-tab">
+        @*Content Begin*@
+        <div class="row">
+            <div class="col-6">
+                <div class="list-group" id="list-tab" role="tablist">
+                    <a class="list-group-item list-group-item-action active" id="list-orders-list" data-toggle="list" href="#list-orders"
+                       role="tab" aria-controls="home">My Orders</a>
+                    <a class="list-group-item list-group-item-action" id="list-adresses-list" data-toggle="list" href="#list-adresses"
+                       role="tab" aria-controls="profile">My Adresses</a>
+                    <a class="list-group-item list-group-item-action" id="list-natifications-list" data-toggle="list" href="#list-natifications"
+                       role="tab" aria-controls="messages">Natifications</a>
+                    <a class="list-group-item list-group-item-action" id="list-card-list" data-toggle="list" href="#list-card"
+                       role="tab" aria-controls="settings">Card İnformations</a>
+                    <a class="list-group-item list-group-item-action" id="list-comments-list" data-toggle="list" href="#list-comments"
+                       role="tab" aria-controls="settings">My Comments</a>
+                    <a class="list-group-item list-group-item-action" id="list-likes-list" data-toggle="list" href="#list-likes"
+                       role="tab" aria-controls="settings">My likes</a>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="list-orders" role="tabpanel" aria-labelledby="list-home-list">
+                        Velit aute mollit ipsum ad dolor consectetur nulla officia culpa adipisicing exercitation fugiat
+                        tempor. Voluptate deserunt sit sunt nisi aliqua fugiat proident ea ut. Mollit voluptate reprehenderit
+                        occaecat nisi ad non minim tempor sunt voluptate consectetur exercitation id ut nulla. Ea et fugiat
+                        aliquip nostrud sunt incididunt consectetur culpa aliquip eiusmod dolor. Anim ad Lorem aliqua in
+                        cupidatat nisi enim eu nostrud do aliquip veniam minim.
+                    </div>
+                    <div class="tab-pane fade" id="list-adresses" role="tabpanel" aria-labelledby="list-profile-list">
+                        Cupidatat quis ad sint excepteur laborum in esse qui. Et excepteur consectetur ex nisi eu do cillum ad
+                        laborum. Mollit et eu officia dolore sunt Lorem culpa qui commodo velit ex amet id ex. Officia anim
+                        incididunt laboris deserunt anim aute dolor incididunt veniam aute dolore do exercitation. Dolor nisi
+                        culpa ex ad irure in elit eu dolore. Ad laboris ipsum reprehenderit irure non commodo enim culpa
+                        commodo veniam incididunt veniam ad.
+                    </div>
+                    <div class="tab-pane fade" id="list-natifications" role="tabpanel" aria-labelledby="list-messages-list">
+                        Ut ut do pariatur aliquip aliqua aliquip exercitation do nostrud commodo reprehenderit aute ipsum
+                        voluptate. Irure Lorem et laboris nostrud amet cupidatat cupidatat anim do ut velit mollit consequat
+                        enim tempor. Consectetur est minim nostrud nostrud consectetur irure labore voluptate irure. Ipsum id
+                        Lorem sit sint voluptate est pariatur eu ad cupidatat et deserunt culpa sit eiusmod deserunt.
+                        Consectetur et fugiat anim do eiusmod aliquip nulla laborum elit adipisicing pariatur cillum.
+                    </div>
+                    <div class="tab-pane fade" id="list-card" role="tabpanel" aria-labelledby="list-settings-list">
+                        @*Content Begin*@
+
+                        @*Content End*@
+                    </div>
+                    <div class="tab-pane fade" id="list-comments" role="tabpanel" aria-labelledby="list-settings-list">
+                        @*Content Begin*@
+
+                        @*Content End*@
+                    </div>
+                    <div class="tab-pane fade" id="list-likes" role="tabpanel" aria-labelledby="list-settings-list">
+                        @*Content Begin*@
+
+                        @*Content End*@
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        @*Content End*@
+    </div>
+        @*-------------------Account Operations End-------------------*@
+
+        @*-------------------Account Settings Begin-------------------*@
+        <div class="tab-pane fade" id="pills-account-settings" role="tabpanel" aria-labelledby="pills-contact-tab">
+            @*Content Begin*@
+            <div class="row">
+                <div class="col-6">
+                    <div class="list-group" id="list-tab" role="tablist">
+                        <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home"
+                           role="tab" aria-controls="home">Home</a>
+                        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile"
+                           role="tab" aria-controls="profile">Profile</a>
+                        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages"
+                           role="tab" aria-controls="messages">Edit My Account</a>
+                        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings"
+                           role="tab" aria-controls="settings">Delete My Account</a>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                            Velit aute mollit ipsum ad dolor consectetur nulla officia culpa adipisicing exercitation fugiat
+                            tempor. Voluptate deserunt sit sunt nisi aliqua fugiat proident ea ut. Mollit voluptate reprehenderit
+                            occaecat nisi ad non minim tempor sunt voluptate consectetur exercitation id ut nulla. Ea et fugiat
+                            aliquip nostrud sunt incididunt consectetur culpa aliquip eiusmod dolor. Anim ad Lorem aliqua in
+                            cupidatat nisi enim eu nostrud do aliquip veniam minim.
+                        </div>
+                        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                            Cupidatat quis ad sint excepteur laborum in esse qui. Et excepteur consectetur ex nisi eu do cillum ad
+                            laborum. Mollit et eu officia dolore sunt Lorem culpa qui commodo velit ex amet id ex. Officia anim
+                            incididunt laboris deserunt anim aute dolor incididunt veniam aute dolore do exercitation. Dolor nisi
+                            culpa ex ad irure in elit eu dolore. Ad laboris ipsum reprehenderit irure non commodo enim culpa
+                            commodo veniam incididunt veniam ad.
+                        </div>
+                        <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                            Ut ut do pariatur aliquip aliqua aliquip exercitation do nostrud commodo reprehenderit aute ipsum
+                            voluptate. Irure Lorem et laboris nostrud amet cupidatat cupidatat anim do ut velit mollit consequat
+                            enim tempor. Consectetur est minim nostrud nostrud consectetur irure labore voluptate irure. Ipsum id
+                            Lorem sit sint voluptate est pariatur eu ad cupidatat et deserunt culpa sit eiusmod deserunt.
+                            Consectetur et fugiat anim do eiusmod aliquip nulla laborum elit adipisicing pariatur cillum.
+                        </div>
+                        <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+                            @*Content Begin*@
+                            <i class="fas fa-exclamation-triangle" style="color:red;"></i> <span class="red-text">Do you want to delete your account?</span>
+                            <button type="button" class="btn btn-danger btn-sm">Danger</button>
+                            <p class="cyan-text">Odio autem veritatis aliquam consequuntur ea voluptatibus.</p>
+                            <p class="teal-text">Similique, adipisci ea, sequi magnam sit inventore.</p>
+                            @*Content End*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*Content End*@
+        </div>
+        @*-------------------Account Settings End---------------------*@
+
+        @*-------------------------Help Begin-------------------------*@
+        <div class="tab-pane fade" id="pills-help" role="tabpanel" aria-labelledby="pills-contact-tab">
+            @*Content Begin*@
+            <div id="accordion">
+                <div class="card" style="background-color:ivory;">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                <span id="accrdnicon"><i class="fas fa-arrow-circle-right"></i></span> <span>How can change my account address?</span>
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse clps" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="background-color:lavender;">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <span id="accrdnicon"><i class="fas fa-arrow-circle-right"></i></span>  How can change my account password?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse clps" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="background-color:lemonchiffon;">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <span id="accrdnicon"><i class="fas fa-arrow-circle-right"></i></span>  How can change my account password?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse clps" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="background-color:lightblue;">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                <span id="accrdnicon"><i class="fas fa-arrow-circle-right"></i></span>  May I use address more than one?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFour" class="collapse clps" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="background-color:lightcyan;">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+                                <span id="accrdnicon"><i class="fas fa-arrow-circle-right"></i></span>  May I use account more than one?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFive" class="collapse clps" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="background-color:lightgoldenrodyellow;">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsesix" aria-expanded="false" aria-controls="collapseThree">
+                                <span id="accrdnicon"><i class="fas fa-arrow-circle-right"></i></span>  May I connect my accounts this account?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapsesix" class="collapse clps" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*Content End*@
+        </div>
+        @*-------------------------Help End---------------------------*@
+    </div>
+
+</div>
+
+@*------------------ 5th Sub Part End -----------------------------------*@
+
+
+
+@*------------------ Top User Profile Main Part Begin--------------------*@
+
+<div class="container">
+
+
+
+
+
+
+</div>
+
+@*------------------ Top User Profile Main Part End----------------------*@
+
+
+
+@*------------------ First Sub Part Begin -------------------------------*@
+
+<div class="container">
+
+
+
+</div>
+
+@*------------------ First Sub Part End ---------------------------------*@
+
+
+
+@*------------------ Fourth Sub Part Begin ------------------------------*@
+
+<div class="container">
+
+    <!-- Card -->
+    <div class="card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg);">
+
+        <!-- Content -->
+        <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+            <div>
+                <h5 class="pink-text"><i class="fas fa-chart-pie"></i> Marketing</h5>
+                <h3 class="card-title pt-2"><strong>This is the card title</strong></h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam, voluptatem,
+                    optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos.
+                    Odit sed qui, dolorum!.
+                </p>
+                <a class="btn btn-pink"><i class="fas fa-clone left"></i> View project</a>
+            </div>
+        </div>
+
+    </div>
+    <!-- Card -->
+
+</div>
+
+@*------------------ Fourth Sub Part End --------------------------------*@
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+
+        $('.clps').on('show.bs.collapse', function () {
+
+            var span = $('span#accrdnicon');
+            $(span).children().removeClass('fas fa-arrow-circle-right');
+            $(span).children().addClass('fas fa-arrow-circle-down');
+
+        });
+
+        $('.clps').on('hide.bs.collapse', function () {
+
+            var span = $('span#accrdnicon');
+            $(span).children().removeClass('fas fa-arrow-circle-down');
+            $(span).children().addClass('fas fa-arrow-circle-right');
+        });
+
+
+    });
+
+
+</script>
+

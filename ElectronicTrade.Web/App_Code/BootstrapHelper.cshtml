@@ -1,0 +1,77 @@
+﻿@using ElectronicTrade.Entities
+
+@helper CreateMenu(IEnumerable<Category> rootcats)
+{
+
+
+    <div class="nav" style="background-color:cornsilk;">
+        <input type="checkbox" id="menu" />
+        <label for="menu" id="nav-icon">&#9776;</label>
+
+
+        @foreach (Category rootcat in rootcats.Where(x => x.ParentCategory_Id == null).ToList())
+        {
+            if (rootcat.Categories.Count() > 0)
+            {
+                <div class="multi-level">
+                    <div class="item">
+                        <input type="checkbox" id="@rootcat.Id" />
+                        <img src="~/Images/Homepage/icons/Arrow2.png" class="arrow"><label for="@rootcat.Id"> <a class="nav-link  btn btn-sm btn-outline-purple" href="#">@rootcat.Name</a></label>
+                        <ul>
+                            <li>
+                                @CreateSubMenu(rootcat)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="multi-level">
+
+                    <div class="item">
+                        <input type="checkbox" id="@rootcat.Id" />
+                        <img src="~/Images/Homepage/icons/Arrow2.png" class="arrow"><label for="@rootcat.Id"> <a class="nav-link  btn btn-sm btn-amber" href="#">@rootcat.Name</a></label>
+                    </div>
+                </div>
+            }
+
+        }
+
+    </div>
+
+
+}
+
+@helper CreateSubMenu(Category subcategory)
+{
+    foreach (Category subsubcategory in subcategory.Categories)
+    {
+        if (subsubcategory.Categories.Count() > 0)
+        {
+
+            <div class="sub-item">
+                <input type="checkbox" id="@subsubcategory.Id" />
+                <img src="~/Images/Homepage/icons/Arrow3.png" class="arrow"><label for="@subsubcategory.Id"><a class="nav-link  btn btn-sm btn-outline-light-blue" href="#">@subsubcategory.Name</a></label>
+
+                <ul>
+                    <li>
+                        @CreateSubMenu(subsubcategory)
+                    </li>
+                </ul>
+            </div>
+
+
+        }
+        else
+        {
+
+            <div class="item">
+                <input type="checkbox" id="@subsubcategory.Id" />
+                <img src="~/Images/Homepage/icons/Cross.png" class="arrow"><label for="@subsubcategory.Id"><a class="nav-link  btn btn-sm btn-outline-lime" href="#">@subsubcategory.Name</a></label>
+            </div>
+
+        }
+    }
+}
+
